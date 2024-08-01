@@ -2,29 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 
-const notes = [
-  {
-    id: 1,
-    content: 'HTML is easy',
-    date: '2019-05-30T17:30:31.098Z',
-    important: true
-  },
-  {
-    id: 2,
-    content: 'Browser can execute only JavaScript',
-    date: '2019-05-30T18:39:34.091Z',
-    important: false
-  },
-  {
-    id: 3,
-    content: 'GET and POST are the most important methods of HTTP protocol',
-    date: '2019-05-30T19:20:14.298Z',
-    important: true
-  }
-]
+const items = [
+  { id: 1, product: "Mobile", price: 10000 },
+  { id: 2, product: "Laptop", price: 50000 },
+  { id: 3, product: "Tablet", price: 15000 },
+  { id: 4, product: "Smartwatch", price: 5000 },
+];
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <App 
-    notes={notes}
+    items={items}
   />
 )
