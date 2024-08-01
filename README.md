@@ -67,3 +67,11 @@ https://docs.google.com/document/d/1mqZqoxmPlEioKCwVfuOYIUcG2kESrYuocrYO4h9kiRk/
 
 - Keys help React identify which items have changed, are added, or are removed.
 - Keys should be given to the elements inside the array to give the elements a stable identity.
+
+## Conditional rendering:
+
+- Conditional rendering in React works the same way conditions work in JavaScript.
+- To render a React element, you can use one of the following methods:
+  1. If-else statements
+  2. Conditional operator(?:)
+  3. Logical && operator

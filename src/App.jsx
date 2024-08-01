@@ -1,3 +1,5 @@
+import Note from "./components/Note";
+
 function App({ notes }) {
 
   return (
@@ -5,8 +7,11 @@ function App({ notes }) {
         <h1>Notes</h1>
         <ul>
             {
-                notes.map((note, index) => {
-                    return <li key={index}>{ note.content }</li>
+                notes.map(note => {
+                    return <Note 
+                        note={note}
+                        key={note.id}
+                    />
                 })      
             }
         </ul>      
