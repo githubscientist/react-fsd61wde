@@ -51,11 +51,11 @@ Advantages of React:
 
 [x] Working with array lists  
 [x] Usage of keys  
-[ ] Conditional rendering  
-[ ] Handling Events  
+[x] Conditional rendering  
+[x] Handling Events  
 [ ] Props vs State
 
-## Task:
+## Task: [2.8.2024]
 
 https://docs.google.com/document/d/1mqZqoxmPlEioKCwVfuOYIUcG2kESrYuocrYO4h9kiRk/edit
 
@@ -75,3 +75,22 @@ https://docs.google.com/document/d/1mqZqoxmPlEioKCwVfuOYIUcG2kESrYuocrYO4h9kiRk/
   1. If-else statements
   2. Conditional operator(?:)
   3. Logical && operator
+
+## Handling Events:
+
+- Handling events with React elements is very similar to handling events on DOM elements.
+
+Exercise:
+
+1. Create a new React application that displays a list of items as a table.
+
+Data:
+
+```jsx
+const items = [
+  { id: 1, product: "Mobile", price: 10000 },
+  { id: 2, product: "Laptop", price: 50000 },
+  { id: 3, product: "Tablet", price: 15000 },
+  { id: 4, product: "Smartwatch", price: 5000 },
+];
+```

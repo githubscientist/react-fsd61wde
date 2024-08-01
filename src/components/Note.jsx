@@ -1,5 +1,8 @@
 function Note({ note }) {
-    return <li>
+
+    const handleClick = () => console.log(`${note.content}`)
+
+    return <li onClick={handleClick}>
         { note.content } { note.important && '✦' }
     </li>
 }
