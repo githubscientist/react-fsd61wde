@@ -7,8 +7,8 @@
 [x] Understanding JSX  
 [x] Components (simple HTML layout to reusable react components)  
 [x] Understanding the components  
-[ ] Passing data through props  
-[ ] Deploying react to netlify
+[x] Passing data through props  
+[x] Deploying react to netlify
 
 ## Pre-read:
 
@@ -44,3 +44,26 @@ Advantages of React:
 ### Components:
 
 - Components are the building blocks of any React application.
+
+# React- Day -3: React hooks & states
+
+## Contents:
+
+[x] Working with array lists  
+[x] Usage of keys  
+[ ] Conditional rendering  
+[ ] Handling Events  
+[ ] Props vs State
+
+## Task:
+
+https://docs.google.com/document/d/1mqZqoxmPlEioKCwVfuOYIUcG2kESrYuocrYO4h9kiRk/edit
+
+## Working with array lists:
+
+- In React, you can use the map() method to loop over an array and render its elements.
+
+## Usage of keys:
+
+- Keys help React identify which items have changed, are added, or are removed.
+- Keys should be given to the elements inside the array to give the elements a stable identity.
