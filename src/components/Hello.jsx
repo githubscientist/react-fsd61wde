@@ -1,9 +1,9 @@
-function Hello(props) {
+function Hello({a, b}) {
     return (
         <div>
             <h1>Hello World!</h1>
             <p>
-                {props.a} plus {props.b} is {props.a + props.b}
+                {a} plus {b} is {a + b}
             </p>
         </div>
     )

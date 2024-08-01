@@ -6,10 +6,17 @@ function App() {
     const b = 20;
 
     return (
-        <Hello 
-            a={a}
-            b={b}
-      />
+        <div>
+            <Hello 
+                a={a}
+                b={b}
+            />
+            
+            <Hello 
+                a={5.6}
+                b={4.324}
+            />
+        </div>
   )
 }
 
