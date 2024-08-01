@@ -1,12 +1,9 @@
-function Hello() {
-    const a = 10;
-    const b = 20;
-
+function Hello(props) {
     return (
         <div>
             <h1>Hello World!</h1>
             <p>
-                {a} plus {b} is {a + b}
+                {props.a} plus {props.b} is {props.a + props.b}
             </p>
         </div>
     )
