@@ -1,22 +1,23 @@
-import Hello from "./components/Hello";
+function App({ notes }) {
 
-function App() {
+    // create an array of React list items
+    const notesList = [];
 
-    const a = 10;
-    const b = 20;
+    for (let i = 0; i < notes.length; i++){
+        notesList.push(<li>{ notes[i].content }</li>);
+    }
 
-    return (
-        <div>
-            <Hello 
-                a={a}
-                b={b}
-            />
-            
-            <Hello 
-                a={5.6}
-                b={4.324}
-            />
-        </div>
+    console.log(notesList);
+
+  return (
+      <div>
+        <h1>Notes</h1>
+        <ul>
+            {
+                notesList      
+            }
+        </ul>      
+    </div>
   )
 }
 
