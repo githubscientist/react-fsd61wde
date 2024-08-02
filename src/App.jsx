@@ -1,36 +1,27 @@
 import { Component } from "react";
-
-class Header extends Component {
-  render() {
-    return <h1>Hello World</h1>
-  }
-}
-
-class Description extends Component {
-  render() {
-    return <p>A message to the world that we are here!</p>
-  }
-}
-
-
-class Hello extends Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <Description />
-      </div>
-    )
-  }
-}
+import Hello from "./components/Hello";
 
 class App extends Component{
+
   render() {
+
+    const names = [
+      "Peter",
+      "Bruce",
+      "Clark"
+    ];
+
     return (
       <div>
-        <Hello />
-        <Hello />
-        <Hello />
+        <Hello 
+          name={names[0]}
+        />
+        <Hello 
+          name={names[1]}
+        />
+        <Hello 
+          name={names[2]}
+        />
       </div>
     )
   }
