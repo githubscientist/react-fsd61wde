@@ -1,39 +1,29 @@
 import { Component } from "react";
-import Hello from "./components/Hello";
 
-class App extends Component{
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      count: 0
+    }
+  }
+
+  handleClick = () => {
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
 
   render() {
 
-    const names = [
-      {
-        name: 'Peter',
-        greeting: 'Hello'
-      },
-      {
-        name: 'Clark',
-        greeting: 'Hi'
-      },
-      {
-        name: 'Bruce',
-        greeting: 'Hey'
-      }
-    ];
+    console.log('rendering the component...');
 
     return (
       <div>
-        <Hello 
-          name={names[0].name}
-          greeting={names[0].greeting}
-        />
-        <Hello 
-          name={names[1].name}
-          greeting={names[1].greeting}
-        />
-        <Hello 
-          name={names[2].name}
-          greeting={names[2].greeting}
-        />
+        <h1>Counter</h1>
+        <button onClick={this.handleClick}>Count: { this.state.count }</button>
       </div>
     )
   }

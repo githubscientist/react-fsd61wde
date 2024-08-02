@@ -101,7 +101,7 @@ const items = [
 
 [x] Components - In-depth  
 [ ] Component life cycle  
-[x] Stateful and stateless components  
+[x] Stateful and stateless components -- needs revisit
 [x] Reusable components  
 [x] Passing dynamic data to component  
 [ ] Introduction to Hook
