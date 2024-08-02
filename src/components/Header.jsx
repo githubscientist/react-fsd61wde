@@ -2,7 +2,7 @@ import { Component } from "react";
 
 class Header extends Component {
   render() {
-    return <h1>Hello { this.props.name }</h1>
+    return <h1>{ this.props.greeting } { this.props.name }</h1>
   }
 }
 

@@ -101,9 +101,9 @@ const items = [
 
 [x] Components - In-depth  
 [ ] Component life cycle  
-[ ] Stateful and stateless components  
+[x] Stateful and stateless components  
 [x] Reusable components  
-[ ] Passing dynamic data to component  
+[x] Passing dynamic data to component  
 [ ] Introduction to Hook
 
 ### Components - In-depth:
@@ -114,3 +114,20 @@ Components can be created in two ways:
 
 1. Function components or Stateless components
 2. Class components or Stateful components
+
+### Stateful and stateless components:
+
+1. **Stateful components**:
+
+- Stateful components are also called class components. They have a state object and can change the state of the component.
+
+2. **Stateless components**:
+
+- Stateless components are also called functional components.
+- They are efficient and easy to understand compared to class components.
+- They lacked initially the ability to use state and lifecycle methods, but with the introduction of hooks, they can now use state and lifecycle methods.
+
+State:
+
+- Component's memory to store the data.
+- State is mutable.

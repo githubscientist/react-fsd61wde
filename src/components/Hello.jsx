@@ -10,6 +10,7 @@ class Hello extends Component {
       <div>
         <Header 
           name={this.props.name}
+          greeting={this.props.greeting}
         />
         <Description 
           name={this.props.name}
