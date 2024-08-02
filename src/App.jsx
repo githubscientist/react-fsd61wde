@@ -1,20 +1,8 @@
-import Note from "./components/Note";
-
-function App({ notes }) {
-
+// Create a Functional Component called App
+function App() {
   return (
-      <div>
-        <h1>Notes</h1>
-        <ul>
-            {
-                notes.map(note => {
-                    return <Note 
-                        note={note}
-                        key={note.id}
-                    />
-                })      
-            }
-        </ul>      
+    <div>
+      <h1>Hello World</h1>
     </div>
   )
 }

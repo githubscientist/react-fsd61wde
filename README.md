@@ -94,3 +94,23 @@ const items = [
   { id: 4, product: "Smartwatch", price: 5000 },
 ];
 ```
+
+# React- Day -4: React components
+
+## Contents:
+
+[x] Components - In-depth  
+[ ] Component life cycle  
+[ ] Stateful and stateless components  
+[ ] Reusable components  
+[ ] Passing dynamic data to component  
+[ ] Introduction to Hook
+
+### Components - In-depth:
+
+- Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
+
+Components can be created in two ways:
+
+1. Function components or Stateless components
+2. Class components or Stateful components
