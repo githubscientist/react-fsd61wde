@@ -1,29 +1,22 @@
-import { Component } from "react";
+import { Component } from 'react';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super(); // calling the parent class constructor
 
-    this.state = {
-      count: 0
+    // initialize state
+    this.state = { 
+      name: 'Krish'
     }
   }
 
-  handleClick = () => {
-    this.setState({
-      count: this.state.count + 1
-    })
-  }
-
   render() {
-
-    console.log('rendering the component...');
+    console.log(this.state);
 
     return (
       <div>
-        <h1>Counter</h1>
-        <button onClick={this.handleClick}>Count: { this.state.count }</button>
+        <h1>Hello { this.state.name }!</h1>
       </div>
     )
   }
