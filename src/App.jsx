@@ -7,17 +7,14 @@ class App extends Component {
 
     // initialize state
     this.state = { 
-      name: 'Krish'
+      count: 0
     }
   }
 
   handleClick = () => {
-    // should not mutate the state directly
-    // this.state.name = 'Kailash'; // this will not work
     this.setState({
-      name: 'Kailash'
+      count: this.state.count + 1
     });
-    console.log(this.state);
   }
 
   render() {
@@ -26,8 +23,8 @@ class App extends Component {
 
     return (
       <div>
-        <h1>Hello {this.state.name}!</h1>
-        <button onClick={this.handleClick}>Change Name</button>
+        <h1>Counter: {this.state.count}</h1>
+        <button onClick={this.handleClick}>Increment</button>
       </div>
     )
   }
