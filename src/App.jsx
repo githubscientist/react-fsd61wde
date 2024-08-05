@@ -3,20 +3,24 @@ import { useState } from "react";
 const App = () => {
 
   const [count, setCount] = useState(0);
+  const [clicks, setClicks] = useState([]);
 
   function increment() {
     setCount(count + 1);
+    setClicks([...clicks, 'I']);
   }
 
   function decrement() {
     setCount(count - 1);
+    setClicks([...clicks, 'D']);
   }
 
   function reset() {
     setCount(0);
+    setClicks([...clicks, 'R']);
   }
 
-  console.log(count);
+  console.log(clicks);
 
   return (
     <div>
@@ -24,6 +28,7 @@ const App = () => {
       <button onClick={increment}>Increment</button>
       <button onClick={decrement}>Decrement</button>
       <button onClick={reset}>Reset</button>
+      <p>History: { clicks.join(', ') }</p>
     </div>
   )
 }
