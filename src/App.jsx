@@ -11,12 +11,23 @@ class App extends Component {
     }
   }
 
+  handleClick = () => {
+    // should not mutate the state directly
+    // this.state.name = 'Kailash'; // this will not work
+    this.setState({
+      name: 'Kailash'
+    });
+    console.log(this.state);
+  }
+
   render() {
+
     console.log(this.state);
 
     return (
       <div>
-        <h1>Hello { this.state.name }!</h1>
+        <h1>Hello {this.state.name}!</h1>
+        <button onClick={this.handleClick}>Change Name</button>
       </div>
     )
   }
