@@ -1,36 +1,28 @@
-import { useEffect, useState } from "react";
+const D = ({ name }) => {
+  return <h1>Hello {name}!</h1>;
+}
+
+const C = ({ name }) => {
+  return <D
+    name={name}
+  />;
+}
+
+const B = ({ name }) => {
+  return <C 
+    name={name}
+  />;
+}
 
 const App = () => {
 
-  const [count, setCount] = useState(0);
-  const [history, setHistory] = useState([]);
-
-  // this runs when the component is mounted and never runs again
-  useEffect(() => {
-    console.log(`Component is mounted`);
-  }, []);
-
-  // this runs when the component is mounted and every time the count changes
-  useEffect(() => {
-    console.log(`Count is changed to ${count}`);
-  }, [count]);
-
-  // this runs when the component is mounted and every time the state changes
-  useEffect(() => {
-    console.log(`History is changed to ${history}`);
-  });
-
-  const handleIncrement = () => {
-    setCount(count + 1);
-    setHistory(
-      [...history, count]
-    );
-  }
+  const name = 'React';
 
   return (
     <div>
-      <h1>Counter: {count}</h1>
-      <button onClick={handleIncrement}>Increment</button>
+      <B 
+        name={name}
+      />
     </div>
   )
 }

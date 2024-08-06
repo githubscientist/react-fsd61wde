@@ -139,7 +139,7 @@ State:
 [x] What is the hook?  
 [x] Lifecycle of Hook  
 [x] useState, useEffect  
-[ ] Props drilling  
+[x] Props drilling  
 [ ] Passing data from child to parent component
 
 ## Task:
@@ -169,3 +169,12 @@ Note: Lifecycle methods are applicable only for class components.
 - **useState**: useState is a Hook that allows you to have state variables in functional components.
 - **useEffect**: useEffect is a Hook that allows you to perform side effects in functional components.
   Example: Data fetching, setting up a subscription, and manually changing the DOM in React components.
+
+## useEffect:
+
+- The useEffect hook runs after the first render and after every update.
+- It is a close replacement for componentDidMount, componentDidUpdate, and componentWillUnmount.
+
+## props drilling:
+
+- Props drilling is the process of passing props from one component to another component (at multiple levels) in React.
