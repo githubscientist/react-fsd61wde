@@ -1,27 +1,15 @@
-const D = ({ name }) => {
-  return <h1>Hello {name}!</h1>;
-}
-
-const C = ({ name }) => {
-  return <D
-    name={name}
-  />;
-}
-
-const B = ({ name }) => {
-  return <C 
-    name={name}
-  />;
-}
+import { useState } from "react";
+import Counter from "./components/Counter";
 
 const App = () => {
 
-  const name = 'React';
+  const [count, setCount] = useState(0);
 
   return (
     <div>
-      <B 
-        name={name}
+      <Counter 
+        count={count}
+        setCount={setCount}
       />
     </div>
   )
