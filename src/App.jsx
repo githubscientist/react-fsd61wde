@@ -1,52 +1,38 @@
-import { Component } from 'react';
-import Count from './components/Count';
+import { useEffect, useState } from "react";
 
-export class App extends Component {
+const App = () => {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0,
-      visible: true
-    }
+  const [count, setCount] = useState(0);
+  const [history, setHistory] = useState([]);
+
+  // this runs when the component is mounted and never runs again
+  useEffect(() => {
+    console.log(`Component is mounted`);
+  }, []);
+
+  // this runs when the component is mounted and every time the count changes
+  useEffect(() => {
+    console.log(`Count is changed to ${count}`);
+  }, [count]);
+
+  // this runs when the component is mounted and every time the state changes
+  useEffect(() => {
+    console.log(`History is changed to ${history}`);
+  });
+
+  const handleIncrement = () => {
+    setCount(count + 1);
+    setHistory(
+      [...history, count]
+    );
   }
 
-  increment = () => {
-    this.setState({
-      count: this.state.count + 1
-    })
-  }
-
-  toggle = () => {
-    this.setState({
-      ...this.state,
-      visible: !this.state.visible
-    })
-  }
-
-  render() {
-
-    const { count, visible } = this.state;
-
-    return (
-      <div>
-        <h1>
-          <button onClick={this.toggle}>
-            {
-              visible ? 'Hide' : 'Show'
-            }
-          </button> 
-        </h1>
-        {
-          visible &&
-          <Count 
-            count={count}
-            incrementCount={this.increment}
-          />
-        }
-      </div>
-    )
-  }
+  return (
+    <div>
+      <h1>Counter: {count}</h1>
+      <button onClick={handleIncrement}>Increment</button>
+    </div>
+  )
 }
 
 export default App;

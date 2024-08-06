@@ -101,7 +101,7 @@ const items = [
 
 [x] Components - In-depth  
 [x] Component life cycle  
-[x] Stateful and stateless components -- needs revisit
+[x] Stateful and stateless components
 [x] Reusable components  
 [x] Passing dynamic data to component  
 [x] Introduction to Hook
@@ -137,7 +137,7 @@ State:
 ## Contents:
 
 [x] What is the hook?  
-[ ] Lifecycle of Hook  
+[x] Lifecycle of Hook  
 [x] useState, useEffect  
 [ ] Props drilling  
 [ ] Passing data from child to parent component
@@ -163,3 +163,9 @@ https://docs.google.com/document/d/1frCM6keoI6YKQqxm0XbgEP2CCZjDH5Zi8wEp_NXtk2g/
   3. **Unmounting**: When the component is being removed from the DOM.
 
 Note: Lifecycle methods are applicable only for class components.
+
+## Lifecycle of Hook:
+
+- **useState**: useState is a Hook that allows you to have state variables in functional components.
+- **useEffect**: useEffect is a Hook that allows you to perform side effects in functional components.
+  Example: Data fetching, setting up a subscription, and manually changing the DOM in React components.
