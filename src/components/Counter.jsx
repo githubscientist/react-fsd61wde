@@ -1,12 +1,18 @@
-const Counter = ({ count, setCount }) => {
+import { useState } from "react";
+
+const Counter = ({ updateCount }) => {
+
+    const [count, setCount] = useState(0);
 
     const handleIncrement = () => {
         setCount(count + 1);
+        // parent class method
+        // to have access to the count
+        updateCount(count);
     }
 
   return (
       <div>
-          <h1>Counter: { count }</h1>
           <button onClick={handleIncrement}>Increment</button>
     </div>
   )

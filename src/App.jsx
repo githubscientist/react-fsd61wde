@@ -5,11 +5,15 @@ const App = () => {
 
   const [count, setCount] = useState(0);
 
+  const updateCount = (childCount) => {
+    setCount(childCount);
+  }
+
   return (
     <div>
+      <h1>Counter: { count }</h1>
       <Counter 
-        count={count}
-        setCount={setCount}
+        updateCount={updateCount}
       />
     </div>
   )
