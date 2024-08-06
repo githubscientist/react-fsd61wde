@@ -1,7 +1,13 @@
-const Status = ({ user }) => {
+const Status = ({ setUser }) => {
+
+    const handleClick = () => {
+        setUser('Prakash');
+    }
     
   return (
-    <h1>{ user || 'Guest' } has logged in!</h1>
+      <div>
+        <button onClick={handleClick}>update</button>
+      </div>
   )
 }
 
