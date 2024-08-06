@@ -53,7 +53,7 @@ Advantages of React:
 [x] Usage of keys  
 [x] Conditional rendering  
 [x] Handling Events  
-[ ] Props vs State
+[x] Props vs State
 
 ## Task: [2.8.2024]
 
@@ -149,3 +149,8 @@ https://docs.google.com/document/d/1frCM6keoI6YKQqxm0XbgEP2CCZjDH5Zi8wEp_NXtk2g/
 ## What is the hook?
 
 - Hooks are functions that let you use state and other React features in functional components.
+
+## props vs state:
+
+- Props are arguments passed into React components (from parent to child components) and are immutable.
+- State is managed within the component and can be changed.
