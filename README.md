@@ -100,7 +100,7 @@ const items = [
 ## Contents:
 
 [x] Components - In-depth  
-[ ] Component life cycle  
+[x] Component life cycle  
 [x] Stateful and stateless components -- needs revisit
 [x] Reusable components  
 [x] Passing dynamic data to component  
@@ -154,3 +154,12 @@ https://docs.google.com/document/d/1frCM6keoI6YKQqxm0XbgEP2CCZjDH5Zi8wEp_NXtk2g/
 
 - Props are arguments passed into React components (from parent to child components) and are immutable.
 - State is managed within the component and can be changed.
+
+## Component lifecycle:
+
+- Each component in React has a lifecycle which you can monitor and manipulate during its three main phases:
+  1. **Mounting**: When the component is being inserted into the DOM.
+  2. **Updating**: When the component is being re-rendered as a result of changes to either its props or state.
+  3. **Unmounting**: When the component is being removed from the DOM.
+
+Note: Lifecycle methods are applicable only for class components.

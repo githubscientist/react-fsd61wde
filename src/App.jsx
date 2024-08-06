@@ -1,21 +1,52 @@
-import { useState } from "react";
-import Status from "./components/Status";
+import { Component } from 'react';
+import Count from './components/Count';
 
-const App = () => {
+export class App extends Component {
 
-  let [user, setUser] = useState('Krish');
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+      visible: true
+    }
+  }
 
-  console.log(`from parent: ${user}`);
+  increment = () => {
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
 
-  return (
-    <div>
-      <h1>{user || 'Guest'} has logged in!</h1>
-      <Status 
-        user={user}
-        setUser={setUser}
-      />
-    </div>
-  )
+  toggle = () => {
+    this.setState({
+      ...this.state,
+      visible: !this.state.visible
+    })
+  }
+
+  render() {
+
+    const { count, visible } = this.state;
+
+    return (
+      <div>
+        <h1>
+          <button onClick={this.toggle}>
+            {
+              visible ? 'Hide' : 'Show'
+            }
+          </button> 
+        </h1>
+        {
+          visible &&
+          <Count 
+            count={count}
+            incrementCount={this.increment}
+          />
+        }
+      </div>
+    )
+  }
 }
 
 export default App;
