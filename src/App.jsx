@@ -1,23 +1,26 @@
 import { useState } from "react";
-import B from "./components/B";
+import Login from "./components/Login";
 
 const App = () => {
 
-  const [name, setName] = useState('');
+  const [page, setPage] = useState('home');
 
-  // 1. Create a function named fn that takes an argument.
-  const fn = (arg) => {
-    // console.log(arg);
-    setName(arg);
+  const toPage = (page) => (e) => {
+    e.preventDefault();
+    setPage(page);
+  }
+
+  const content = () => {
+    if (page === 'login') {
+      return <Login />
+    }
   }
 
   return (
     <div>
-      <p>Data From Child: { name }</p>
-      <B 
-        // 2. Pass the function fn as a prop to the component B.
-        fn={fn}
-      />
+      <h1>Home Page</h1>
+      <a href="/login" onClick={toPage('login')}>Login</a>
+      {content()}
     </div>
   )
 }

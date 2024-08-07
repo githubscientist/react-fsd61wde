@@ -190,3 +190,26 @@ Steps to pass data from child to parent component:
 2. Pass the function as a prop to the child component.
 3. Call the function in the child component and pass the data as an argument.
 
+# React- Day -6: Router
+
+## Contents:
+
+[x] react-router-dom  
+[ ] BrouserRouter, Switch, Link, Route, URL params
+
+[ ] session task on the admin dashboard  
+https://startbootstrap.com/previews/sb-admin-2
+
+## Task:
+
+https://docs.google.com/document/d/1nuVbWYwyP7N1zC9rAoO0taVvthGWsaHH-nfhNdklTQw/edit
+
+## react-router-dom:
+
+- React Router is a standard library for routing in React.
+- It enables the navigation among views of various components in a React Application, allows changing the browser URL, and keeps UI in sync with the URL.
+
+Background Context:
+
+- You are working on a project where you need to create a multi-page application using React.
+- You need to implement routing in your application to navigate between different pages.
