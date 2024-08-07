@@ -1,19 +1,17 @@
-import { useState } from "react";
-import Counter from "./components/Counter";
+import B from "./components/B";
 
 const App = () => {
 
-  const [count, setCount] = useState(0);
-
-  const updateCount = (childCount) => {
-    setCount(childCount);
+  // 1. Create a function named fn that takes an argument.
+  const fn = (arg) => {
+    console.log(arg);
   }
 
   return (
     <div>
-      <h1>Counter: { count }</h1>
-      <Counter 
-        updateCount={updateCount}
+      <B 
+        // 2. Pass the function fn as a prop to the component B.
+        fn={fn}
       />
     </div>
   )

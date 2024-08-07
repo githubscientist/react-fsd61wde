@@ -140,7 +140,7 @@ State:
 [x] Lifecycle of Hook  
 [x] useState, useEffect  
 [x] Props drilling  
-[x] Passing data from child to parent component --needs revisit
+[x] Passing data from child to parent component
 
 ## Task:
 
@@ -178,3 +178,15 @@ Note: Lifecycle methods are applicable only for class components.
 ## props drilling:
 
 - Props drilling is the process of passing props from one component to another component (at multiple levels) in React.
+
+## Passing data from child to parent component:
+
+- In React, data is passed from parent to child components using props.
+- To pass data from a child to a parent component, you can pass a function as a prop to the child component.
+
+Steps to pass data from child to parent component:
+
+1. Create a function in the parent component that accepts data as an argument.
+2. Pass the function as a prop to the child component.
+3. Call the function in the child component and pass the data as an argument.
+
