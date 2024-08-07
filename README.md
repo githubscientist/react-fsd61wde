@@ -195,7 +195,7 @@ Steps to pass data from child to parent component:
 ## Contents:
 
 [x] react-router-dom  
-[ ] BrouserRouter, Switch, Link, Route, URL params
+[x] BrowserRouter, Switch, Link, Route, URL params
 
 [ ] session task on the admin dashboard  
 https://startbootstrap.com/previews/sb-admin-2
