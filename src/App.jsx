@@ -7,17 +7,18 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Nav />,
+    errorElement: <div><h1>404 Not Found</h1></div>,
     children: [
       {
         path: "",
         element: <Home />
       },
       {
-        path: "about",
+        path: "about/:userId",
         element: <About />
       }
     ]
-  },
+  }
 ])
 
 const App = () => {
