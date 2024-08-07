@@ -1,14 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const B = ({ fn }) => {
 
     const [name, setName] = useState('Krish');
 
     // 3. Call the function fn with an argument.
-    fn(name);
+    useEffect(() => {
+        fn(name);
+    }, [name]);
+
+    const handleChange = (e) => {
+        setName(e.target.value);
+    }
 
   return (
-    <div>B</div>
+    <div>
+        <input 
+              value={name}
+              onChange={handleChange}
+        />    
+    </div>
   )
 }
 
