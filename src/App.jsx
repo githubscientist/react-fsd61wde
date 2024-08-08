@@ -1,8 +1,8 @@
-import { useState } from "react";
+import useCounter from "./customHooks/useCounter";
 
 const App = () => {
 
-  const [count, setCount] = useState(0);
+  const counter = useCounter();
 
   const style = {
     display: 'flex',
@@ -10,27 +10,15 @@ const App = () => {
     marginTop: '40px'
   }
 
-  const increase = () => {
-    setCount(count + 1);
-  }
-
-  const decrease = () => {
-    setCount(count - 1);
-  }
-
-  const reset = () => {
-    setCount(0);
-  }
-
   return (
     <div>
       <div style={style}>
-        <button onClick={reset}>reset</button>
+        <button onClick={counter.reset}>reset</button>
       </div>
       <div style={style}>
-        <button onClick={increase}>plus</button>
-        <div>{ count }</div>
-        <button onClick={decrease}>minus</button>
+        <button onClick={counter.increase}>plus</button>
+        <div>{ counter.count }</div>
+        <button onClick={counter.decrease}>minus</button>
       </div>
     </div>
   )
