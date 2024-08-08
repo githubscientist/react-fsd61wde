@@ -222,10 +222,10 @@ Background Context:
 ## Contents:
 
 [x] Working with array lists.  
-[ ] useState and useEffect - usage and examples in react.dev  
+[x] useState and useEffect - usage and examples in react.dev  
 [x] Other commonly used hooks.
 [x] Custom hooks  
-[ ] Provide mini-tasks to practice on day4 and day5 - class components and hooks (useState and useEffect), passing data from child to parent component, lifting the state up.  
+[x] Provide mini-tasks to practice on day4 and day5 - class components and hooks (useState and useEffect), passing data from child to parent component, lifting the state up.  
 [x] URL params in react-router-dom.  
 [x] React router dom - revise  
 [?] Session task on the admin dashboard.
@@ -238,3 +238,11 @@ Background Context:
 - **useMemo**: useMemo is a hook that is used to memoize the value of a function.
 - **useParams**: useParams is a hook that allows you to access the URL parameters in a functional component.
 - **useLoaderData**: useLoaderData is a hook that is used to load data in a React component(react-router-dom).
+
+## Custom hooks:
+
+- Custom hooks are JavaScript functions that utilize one or more built-in hooks to create custom hooks to reuse the logic across multiple components.
+
+## Provide mini-tasks to practice on day4 and day5:
+
+Using hooks, useState and useEffect, create a React application that shows a blog page with a list of blog posts. Each of the blog posts should have a title, author, and content, date posted. Users can like a blog post or dislike a blog post with thumbs up and thumbs down buttons and see the count of likes and dislikes. Users should be able to write a comment on a blog post. The comments header should show the count of comments. Users should be able to delete a comment.
