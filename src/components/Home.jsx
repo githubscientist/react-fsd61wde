@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Home = () => {
 
@@ -18,9 +18,11 @@ const Home = () => {
             <li style={padding}>
                 <Link to="/users">Users</Link>
             </li>
-          </ul>
+      </ul>
+      
+      <Outlet />
           
-          <div>
+          <div style={{ marginTop: '20px'}}>
             <i>&copy;Notes Application, Guvi Geeks Networks Pvt. Ltd.</i>
           </div>
     </div>

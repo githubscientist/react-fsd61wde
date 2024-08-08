@@ -10,23 +10,29 @@ import Note from "./components/Note";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />
-  },
-  {
-    path: "/notes",
-    element: <Notes />,
-    loader: notesLoader
-  },
-  {
-    path: "/notes/:notesId",
-    element: <Note />,
-    loader: notesLoader
-  },
-  {
-    path: "/users",
-    element: <Users />,
-    loader: usersLoader
-  },
+    element: <Home />,
+    children: [
+      {
+        path: "",
+        element: <h1>Welcome to the Home page!</h1>
+      },
+      {
+        path: "notes",
+        element: <Notes />,
+        loader: notesLoader
+      },
+      {
+        path: "notes/:notesId",
+        element: <Note />,
+        loader: notesLoader
+      },
+      {
+        path: "users",
+        element: <Users />,
+        loader: usersLoader
+      },
+    ]
+  }
 ])
 
 const App = () => {
