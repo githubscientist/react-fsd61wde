@@ -141,6 +141,7 @@ State:
 [x] useState, useEffect  
 [x] Props drilling  
 [x] Passing data from child to parent component
+[x] Lifting the state up
 
 ## Task:
 
@@ -196,6 +197,8 @@ Steps to pass data from child to parent component:
 
 [x] react-router-dom  
 [x] BrowserRouter, Switch, Link, Route, URL params
+[x] Nested routes
+[x] loaders
 
 [ ] session task on the admin dashboard  
 https://startbootstrap.com/previews/sb-admin-2
@@ -213,3 +216,16 @@ Background Context:
 
 - You are working on a project where you need to create a multi-page application using React.
 - You need to implement routing in your application to navigate between different pages.
+
+# React- Day -7: Revision & Doubt Clarification
+
+## Contents:
+
+[ ] Working with array lists.  
+[ ] useState and useEffect - usage and examples in react.dev  
+[ ] Other commonly used hooks.  
+[ ] Custom hooks  
+[ ] Provide mini-tasks to practice on day4 and day5 - class components and hooks (useState and useEffect), passing data from child to parent component, lifting the state up.  
+[ ] URL params in react-router-dom.  
+[ ] React router dom - revise  
+[?] Session task on the admin dashboard.
