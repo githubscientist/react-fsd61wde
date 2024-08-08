@@ -1,42 +1,7 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./components/Home";
-import Notes from "./components/Notes";
-import Users from "./components/Users";
-import notesLoader from "./loaders/notesLoader";
-import usersLoader from "./loaders/usersLoader";
-import Note from "./components/Note";
-
-// create a router
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-    children: [
-      {
-        path: "",
-        element: <h1>Welcome to the Home page!</h1>
-      },
-      {
-        path: "notes",
-        element: <Notes />,
-        loader: notesLoader
-      },
-      {
-        path: "notes/:notesId",
-        element: <Note />,
-        loader: notesLoader
-      },
-      {
-        path: "users",
-        element: <Users />,
-        loader: usersLoader
-      },
-    ]
-  }
-])
-
 const App = () => {
-  return <RouterProvider router={router} />
+  return (
+    <div>App</div>
+  )
 }
 
 export default App;

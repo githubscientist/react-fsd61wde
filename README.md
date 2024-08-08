@@ -221,11 +221,20 @@ Background Context:
 
 ## Contents:
 
-[ ] Working with array lists.  
+[x] Working with array lists.  
 [ ] useState and useEffect - usage and examples in react.dev  
-[ ] Other commonly used hooks.  
-[ ] Custom hooks  
+[x] Other commonly used hooks.
+[x] Custom hooks  
 [ ] Provide mini-tasks to practice on day4 and day5 - class components and hooks (useState and useEffect), passing data from child to parent component, lifting the state up.  
-[ ] URL params in react-router-dom.  
-[ ] React router dom - revise  
+[x] URL params in react-router-dom.  
+[x] React router dom - revise  
 [?] Session task on the admin dashboard.
+
+## Other commonly used hooks:
+
+- **useContext**: useContext is a hook that allows you to use the value of a context in a functional component.
+- **useReducer**: useReducer is a hook that is used for state management in React.
+- **useRef**: useRef is a hook that returns a mutable ref object whose .current property is initialized to the passed argument (initialValue).
+- **useMemo**: useMemo is a hook that is used to memoize the value of a function.
+- **useParams**: useParams is a hook that allows you to access the URL parameters in a functional component.
+- **useLoaderData**: useLoaderData is a hook that is used to load data in a React component(react-router-dom).
