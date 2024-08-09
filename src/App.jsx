@@ -11,7 +11,7 @@ const App = () => {
 
   return (
       <div>
-          <CoinsContext.Provider value={coins}>
+          <CoinsContext.Provider value={{ coins, setCoins }}>
             <C1 />
             <C2 />
           </CoinsContext.Provider>
