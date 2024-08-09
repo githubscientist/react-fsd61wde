@@ -4,16 +4,13 @@ import { NameContext } from "../App";
 const Profile = () => {
 
     const { name, setName } = useContext(NameContext);
-    
+    const [newName, setNewName] = useState('');
 
     useEffect(() => {
-        document.querySelector('.nameInput').value = name;
+        setNewName(name);
     }, []);
 
     const handleClick = () => {
-        // get the value from the input
-        const newName = document.querySelector('.nameInput').value;
-
         // update the name
         setName(newName);
     }
@@ -22,8 +19,8 @@ const Profile = () => {
     <div>
           <input 
               type="text"
-              className="nameInput"
-              name="nameInput"
+              value={newName}
+              onChange={(e) => setNewName(e.target.value)}
         />
         <button onClick={handleClick}>Update Profile</button>  
     </div>
