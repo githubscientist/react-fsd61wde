@@ -1,22 +1,24 @@
-import { createContext, useState } from "react";
-import C1 from "./components/C1";
-import C2 from "./components/C2";
+import React, { createContext, useState } from 'react'
+import Profile from './components/Profile';
 
-// 1. Create a Context
-export const CoinsContext = createContext();
+export const NameContext = createContext();
 
 const App = () => {
 
-    const [coins, setCoins] = useState([25, 30, 45, 60, 75]);
+    const [name, setName] = useState('John Doe');
 
   return (
-      <div>
-          <CoinsContext.Provider value={{ coins, setCoins }}>
-            <C1 />
-            <C2 />
-          </CoinsContext.Provider>
+    <div>
+        <NameContext.Provider value={{name, setName}}>
+            <h1>Profile Name: {name}</h1>
+            <Profile />      
+        </NameContext.Provider>
     </div>
   )
 }
 
-export default App;
+export default App
+
+/*
+    Session Task: Profile Name Change
+*/
