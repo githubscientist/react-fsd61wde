@@ -1,25 +1,15 @@
-import useCounter from "./customHooks/useCounter";
+import { useState } from "react";
+import C1 from "./components/C1";
+import C2 from "./components/C2";
 
 const App = () => {
 
-  const counter = useCounter();
-
-  const style = {
-    display: 'flex',
-    justifyContent: 'space-around',
-    marginTop: '40px'
-  }
+    const [coins, setCoins] = useState([25, 30, 45, 60, 75]);
 
   return (
-    <div>
-      <div style={style}>
-        <button onClick={counter.reset}>reset</button>
-      </div>
-      <div style={style}>
-        <button onClick={counter.increase}>plus</button>
-        <div>{ counter.count }</div>
-        <button onClick={counter.decrease}>minus</button>
-      </div>
+      <div>
+          <C1 />
+          <C2 />
     </div>
   )
 }
