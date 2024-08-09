@@ -246,3 +246,20 @@ Background Context:
 ## Provide mini-tasks to practice on day4 and day5:
 
 Using hooks, useState and useEffect, create a React application that shows a blog page with a list of blog posts. Each of the blog posts should have a title, author, and content, date posted. Users can like a blog post or dislike a blog post with thumbs up and thumbs down buttons and see the count of likes and dislikes. Users should be able to write a comment on a blog post. The comments header should show the count of comments. Users should be able to delete a comment.
+
+# React- Day -8: Context API
+
+## Contents:
+
+[ ] Context-API  
+[ ] What is context, provide, createContext  
+[ ] Avoid props drilling  
+[ ] Session task – profile name changes
+
+## Task:
+
+https://docs.google.com/document/d/1ft6tjqQj6dsLbHJ1t2fPHgTQRSZwAE-qBzlxqTqWezw/edit#
+
+### Props drilling:
+
+- Props drilling is the process of passing props from one component to another component (at multiple levels) in React.
