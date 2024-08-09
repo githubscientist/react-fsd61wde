@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CoinsContext } from '../App'
 
 const C4 = () => {
+
+    const coins = useContext(CoinsContext);
+
   return (
       <div>
-          <h1>Total Coins: { }</h1>
+          <h1>Total Coins: { coins.reduce((p, c) => p+ c) }</h1>
     </div>
   )
 }

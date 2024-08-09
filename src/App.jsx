@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import C1 from "./components/C1";
 import C2 from "./components/C2";
+
+// 1. Create a Context
+export const CoinsContext = createContext();
 
 const App = () => {
 
@@ -8,8 +11,10 @@ const App = () => {
 
   return (
       <div>
-          <C1 />
-          <C2 />
+          <CoinsContext.Provider value={coins}>
+            <C1 />
+            <C2 />
+          </CoinsContext.Provider>
     </div>
   )
 }
