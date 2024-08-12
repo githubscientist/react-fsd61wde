@@ -1,6 +1,9 @@
 import { useReducer } from "react";
 
-const initialState = 0;
+const initialState = {
+  count: 0,
+  clicks: []
+};
 
 function reducer(state, action) {
   // reducer function is called when dispatch is called
@@ -9,19 +12,28 @@ function reducer(state, action) {
   // expected from reducer function is to return the new state
   switch (action.type) {
     case 'INCREMENT':
-      return state + 1;
+      return {
+        count: state.count + 1,
+        clicks: [...state.clicks, 'INC']
+      };
     
     case 'DECREMENT':
-      return state - 1;
-  
+      return {
+        count: state.count - 1,
+        clicks: [...state.clicks, 'DEC']
+      };
+    
     case 'RESET':
-      return initialState;
+      return {
+        count: 0,
+        clicks: [...state.clicks, 'RES']
+      };
   }
 }
 
 const App = () => {
 
-  const [count, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const increment = () => {
     dispatch({ type: 'INCREMENT' });
@@ -37,10 +49,11 @@ const App = () => {
 
   return (
     <div>
-      <h1>Count: { count }</h1>
+      <h1>Count: { state.count }</h1>
       <button onClick={increment}>Increment</button>
       <button onClick={decrement}>Decrement</button>
       <button onClick={reset}>Reset</button>
+      <p>{state.clicks.join(', ')}</p>
     </div>
   )
 }
