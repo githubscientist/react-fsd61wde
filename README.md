@@ -269,7 +269,7 @@ https://docs.google.com/document/d/1ft6tjqQj6dsLbHJ1t2fPHgTQRSZwAE-qBzlxqTqWezw/
 ## Contents:
 
 [x] useRef, useReducer  
-[ ] Front end game demonstration - hangman / tictactoe / tile match
+[x] Front end game demonstration - hangman / tictactoe / tile match
 
 useRef:
 
