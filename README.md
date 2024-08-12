@@ -263,3 +263,22 @@ https://docs.google.com/document/d/1ft6tjqQj6dsLbHJ1t2fPHgTQRSZwAE-qBzlxqTqWezw/
 ### Props drilling:
 
 - Props drilling is the process of passing props from one component to another component (at multiple levels) in React.
+
+# React- Day -9: useRef & useReducer
+
+## Contents:
+
+[ ] useRef, useReducer  
+[ ] Front end game demonstration - hangman / tictactoe / tile match
+
+
+useRef:
+
+Context: 
+
+- Let's say you have an input field, what we do normally in javascript is to get the element:
+   - id: document.getElementById('input')
+   - class: document.getElementsByClassName('input')
+
+- But in React, we use useRef to get the element.
+- useRef returns a mutable ref object whose .current property is initialized to the passed argument (initialValue).
