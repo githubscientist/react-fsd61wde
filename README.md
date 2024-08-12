@@ -268,17 +268,23 @@ https://docs.google.com/document/d/1ft6tjqQj6dsLbHJ1t2fPHgTQRSZwAE-qBzlxqTqWezw/
 
 ## Contents:
 
-[ ] useRef, useReducer  
+[x] useRef, useReducer  
 [ ] Front end game demonstration - hangman / tictactoe / tile match
-
 
 useRef:
 
-Context: 
+Context:
 
 - Let's say you have an input field, what we do normally in javascript is to get the element:
-   - id: document.getElementById('input')
-   - class: document.getElementsByClassName('input')
+
+  - id: document.getElementById('input')
+  - class: document.getElementsByClassName('input')
 
 - But in React, we use useRef to get the element.
 - useRef returns a mutable ref object whose .current property is initialized to the passed argument (initialValue).
+
+useReducer:
+
+- useReducer is a hook that is used for state management in React.
+- It is an alternative to useState.
+- useReducer is usually preferable to useState when you have complex state logic that involves multiple sub-values or when the next state depends on the previous one.
