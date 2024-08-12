@@ -251,10 +251,10 @@ Using hooks, useState and useEffect, create a React application that shows a blo
 
 ## Contents:
 
-[ ] Context-API  
-[ ] What is context, provide, createContext  
+[x] Context-API  
+[x] What is context, provide, createContext  
 [x] Avoid props drilling  
-[ ] Session task – profile name changes
+[x] Session task – profile name changes
 
 ## Task:
 
