@@ -1,31 +1,53 @@
-import { useEffect, useState } from "react";
+import { useReducer } from "react";
+
+const initialState = {
+  name: "",
+  email: "",
+  password: ""
+};
+
+const formReducer = (state, action) => {
+  if (action.type === 'SET_NAME') {
+    return {
+      ...state,
+      name: action.payload
+    }
+  } else if (action.type === 'SET_EMAIL') {
+    return {
+      ...state,
+      email: action.payload
+    }
+  } else if (action.type === 'SET_PASSWORD') {
+    return {
+      ...state,
+      password: action.payload
+    }
+  }
+  return state;
+}
 
 const App = () => {
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: ""
-  });
+  const [formData, dispatch] = useReducer(formReducer, initialState);
 
   const handleNameChange = (e) => {
-    setFormData({
-      ...formData,
-      name: e.target.value
+    dispatch({
+      type: 'SET_NAME',
+      payload: e.target.value
     });
   }
 
   const handleEmailChange = (e) => {
-    setFormData({
-      ...formData,
-      email: e.target.value
+    dispatch({
+      type: 'SET_EMAIL',
+      payload: e.target.value
     });
   }
 
   const handlePasswordChange = (e) => {
-    setFormData({
-      ...formData,
-      password: e.target.value
+    dispatch({
+      type: 'SET_PASSWORD',
+      payload: e.target.value
     });
   }
   
