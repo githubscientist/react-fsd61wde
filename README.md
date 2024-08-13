@@ -288,3 +288,12 @@ useReducer:
 - useReducer is a hook that is used for state management in React.
 - It is an alternative to useState.
 - useReducer is usually preferable to useState when you have complex state logic that involves multiple sub-values or when the next state depends on the previous one.
+
+useReducer vs useState:
+
+- useState is built using useReducer.
+- useState is more straightforward and easier to use.
+- useReducer is more powerful and flexible.
+- useReducer is more suitable for complex state logic.
+
+[ ] useReducer --revisited
