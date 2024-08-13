@@ -1,59 +1,35 @@
-import { useReducer } from "react";
-import { formReducer, initialState } from "./reducers/formReducer";
+import { useEffect, useState } from "react";
 
 const App = () => {
 
-  const [formData, dispatch] = useReducer(formReducer, initialState);
+  const [todos, setTodos] = useState([]);
 
-  const handleNameChange = (e) => {
-    dispatch({
-      type: 'SET_NAME',
-      payload: e.target.value
-    });
-  }
-
-  const handleEmailChange = (e) => {
-    dispatch({
-      type: 'SET_EMAIL',
-      payload: e.target.value
-    });
-  }
-
-  const handlePasswordChange = (e) => {
-    dispatch({
-      type: 'SET_PASSWORD',
-      payload: e.target.value
-    });
-  }
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-  }
+  useEffect(() => {
+    // fetch all the todos from the server
+    fetch(`https://66baf2d46a4ab5edd636a422.mockapi.io/todos`, {
+      method: 'GET'
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setTodos(data);
+      })
+  }, []);
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input type="text" placeholder="Enter your name" 
-            value={formData.name}
-            onChange={handleNameChange}
-          />
-        </div>
-        <div>
-          <input type="email" placeholder="Enter your email" 
-            value={formData.email}
-            onChange={handleEmailChange}
-          />
-        </div>
-        <div>
-          <input type="password" placeholder="Enter your password" 
-            value={formData.password}
-            onChange={handlePasswordChange}
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+      <h1>Todo App</h1>
+
+      <ul>
+        {
+          todos.map(todo => {
+            return (
+              <li key={todo.id}>
+                {todo.content}
+              </li>
+            )
+          })
+        }
+      </ul>
     </div>
   )
 }

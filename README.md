@@ -296,4 +296,30 @@ useReducer vs useState:
 - useReducer is more powerful and flexible.
 - useReducer is more suitable for complex state logic.
 
-[ ] useReducer --revisited
+[x] useReducer --revisited
+
+# React- Day -10: Axios
+
+## Contents:
+
+[x] Playing around with API  
+[x] fetch() or Axios  
+[x] Implementing simple CRUD
+
+Todo App:
+
+Server URL: https://66baf2d46a4ab5edd636a422.mockapi.io/
+
+Endpoints:
+
+GET /todos - Get all todos
+GET /todos/:id - Get a todo by id
+POST /todos - Create a new todo
+PUT /todos/:id - Update a todo by id
+DELETE /todos/:id - Delete a todo by id
+
+xhr vs fetch vs axios:
+
+- **xhr**: xhr is a built-in object in web browsers that allows you to make HTTP requests and its a traditional way of making API calls.
+- **fetch**: fetch is a modern way of making API calls in JavaScript.
+- **axios**: axios is a promise-based HTTP client for the browser and node.js.
