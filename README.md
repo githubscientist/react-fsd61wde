@@ -323,3 +323,5 @@ xhr vs fetch vs axios:
 - **xhr**: xhr is a built-in object in web browsers that allows you to make HTTP requests and its a traditional way of making API calls.
 - **fetch**: fetch is a modern way of making API calls in JavaScript.
 - **axios**: axios is a promise-based HTTP client for the browser and node.js.
+
+Note: axios uses fetch under the hood.

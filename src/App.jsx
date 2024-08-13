@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const App = () => {
 
   const [todos, setTodos] = useState([]);
 
+  const fetchTodos = async () => {
+    const response = await axios.get('https://66baf2d46a4ab5edd636a422.mockapi.io/todos');
+    setTodos(response.data);
+  }
+
   useEffect(() => {
-    // fetch all the todos from the server
-    fetch(`https://66baf2d46a4ab5edd636a422.mockapi.io/todos`, {
-      method: 'GET'
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setTodos(data);
-      })
+    fetchTodos();
   }, []);
 
   return (
