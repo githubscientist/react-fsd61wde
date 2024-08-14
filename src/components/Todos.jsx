@@ -52,7 +52,7 @@ const Todos = () => {
 
       <ul style={{listStyleType: 'none', padding: 0}}>
         {
-          todos.map(todo => {
+          todos.sort((a, b) => a.isDone - b.isDone).map(todo => {
             return (
               <li key={todo.id} style={{ textDecoration: todo.isDone ? 'line-through' : 'none' }}>
                 <input type="checkbox" checked={todo.isDone} 
