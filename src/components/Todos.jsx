@@ -30,16 +30,34 @@ const Todos = () => {
                 alert('Adding todo failed');
             });
     }
+  
+  const handleCheckboxChange = (todo) => {
+    // make an api request to update the todo
+    axios.put(`https://66baf2d46a4ab5edd636a422.mockapi.io/todos/${todo.id}`, {
+      content: todo.content,
+      isDone: !todo.isDone
+    })
+      .then(response => {
+        alert('Todo updated successfully');
+        navigate('/'); // refresh the page
+      })
+      .catch(error => {
+        alert('Updating todo failed');
+      });
+  }
 
   return (
     <div>
       <h1>Todo App</h1>
 
-      <ul>
+      <ul style={{listStyleType: 'none', padding: 0}}>
         {
           todos.map(todo => {
             return (
               <li key={todo.id}>
+                <input type="checkbox" checked={todo.isDone} 
+                  onChange={() => handleCheckboxChange(todo)}
+                />
                 {todo.content}
               </li>
             )
