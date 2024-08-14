@@ -54,7 +54,7 @@ const Todos = () => {
         {
           todos.map(todo => {
             return (
-              <li key={todo.id}>
+              <li key={todo.id} style={{ textDecoration: todo.isDone ? 'line-through' : 'none' }}>
                 <input type="checkbox" checked={todo.isDone} 
                   onChange={() => handleCheckboxChange(todo)}
                 />
