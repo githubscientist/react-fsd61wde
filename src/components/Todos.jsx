@@ -1,3 +1,5 @@
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
@@ -46,6 +48,21 @@ const Todos = () => {
       });
   }
 
+  const handleTrashClick = (todo) => {
+    // get the confirmation from the user
+    const isConfirmed = window.confirm('Are you sure you want to delete this todo?');
+    if (!isConfirmed) return;
+    // make an api request to update the todo
+    axios.delete(`https://66baf2d46a4ab5edd636a422.mockapi.io/todos/${todo.id}`)
+      .then(response => {
+        alert('Todo deleted successfully');
+        navigate('/'); // refresh the page
+      })
+      .catch(error => {
+        alert('Deleting todo failed');
+      });
+  }
+
   return (
     <div>
       <h1>Todo App</h1>
@@ -58,7 +75,12 @@ const Todos = () => {
                 <input type="checkbox" checked={todo.isDone} 
                   onChange={() => handleCheckboxChange(todo)}
                 />
-                {todo.content}
+                {todo.content} 
+                {' '}
+                <FontAwesomeIcon icon={faTrash} 
+                  fontSize={12.5}
+                  onClick={() => handleTrashClick(todo)}
+                />
               </li>
             )
           })
