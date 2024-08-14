@@ -8,13 +8,16 @@ const Todos = () => {
 
     const todos = useLoaderData();
     const [newTodo, setNewTodo] = useState('');
-    const [isDone, setIsDone] = useState(false);
+  const [isDone, setIsDone] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [isEditingId, setIsEditingId] = useState(null);
     const navigate = useNavigate();
 
     const handleAddTodo = (e) => {
         e.preventDefault();
         
-        // make an api request to create a new todo
+      if (!isEditing) {
+          // make an api request to create a new todo
         axios.post(`https://66baf2d46a4ab5edd636a422.mockapi.io/todos`, {
             content: newTodo,
             isDone: isDone
@@ -31,6 +34,19 @@ const Todos = () => {
             .catch(error => {
                 alert('Adding todo failed');
             });
+      } else {
+          axios.put(`https://66baf2d46a4ab5edd636a422.mockapi.io/todos/${isEditingId}`, {
+            content: newTodo,
+            isDone: isDone === 'True'
+          })
+            .then(response => {
+              alert('Todo updated successfully');
+              navigate('/'); // refresh the page
+            })
+            .catch(error => {
+              alert('Updating todo failed');
+            });
+        }
     }
   
   const handleCheckboxChange = (todo) => {
@@ -63,6 +79,13 @@ const Todos = () => {
       });
   }
 
+  const handleTodoClick = (todo) => {
+    setIsEditing(true);
+    setNewTodo(todo.content);
+    setIsDone(todo.isDone ? 'True' : 'False');
+    setIsEditingId(todo.id);
+  }
+
   return (
     <div>
       <h1>Todo App</h1>
@@ -75,7 +98,7 @@ const Todos = () => {
                 <input type="checkbox" checked={todo.isDone} 
                   onChange={() => handleCheckboxChange(todo)}
                 />
-                {todo.content} 
+                <span onClick={() => handleTodoClick(todo)}>{todo.content}</span>
                 {' '}
                 <FontAwesomeIcon icon={faTrash} 
                   fontSize={12.5}
@@ -101,7 +124,7 @@ const Todos = () => {
             <option>False</option>
             <option>True</option>
         </select>
-        <button type="submit">Add Todo</button>      
+        <button type="submit">{ isEditing ? 'Update' : 'Add' }</button>
     </form>
 
     </div>
