@@ -325,3 +325,37 @@ xhr vs fetch vs axios:
 - **axios**: axios is a promise-based HTTP client for the browser and node.js.
 
 Note: axios uses fetch under the hood.
+
+# React- Day -11: formik and Recap
+
+## Contents:
+
+[x] Formik
+
+Formik:
+
+- Formik is a small library that helps you with the 3 most annoying parts:
+  1. Getting values in and out of form state
+  2. Validation and error messages
+  3. Handling form submission
+
+# React- Day -12: Redux
+
+## Contents:
+
+[x] Intro to Redux - to understand the state management with react application
+
+Redux:
+
+- Redux is a predictable state container for JavaScript apps.
+- Facebook used Flux architecture to build React applications. But it was complex and hard to debug. So, they introduced Redux.
+- Redux is a state management library that can be used with any UI library or framework, including React, Angular, Vue, etc.
+
+Redux context:
+
+- We create slices of the state. Each slice is a reducer.
+  Each slice contains the following:
+  1. Initial state
+  2. Actions
+  3. Reducer
+- We combine all the slices into a single store.
