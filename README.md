@@ -418,10 +418,10 @@ Create a blogging application where users can create, edit, delete, and view blo
 
 [x] Introduction to database  
 [x] what is mysql?  
-[ ] intro to mysql engines  
-[ ] basic queries - create db, table  
-[ ] insert, update, alter  
-[ ] select - where clause, distinct, group by, order by, offset, limit
+[x] intro to mysql engines  
+[x] basic queries - create db, table  
+[x] insert, update, alter  
+[x] select - where clause, distinct, group by, order by, offset, limit
 
 ## Introduction to database
 
