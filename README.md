@@ -359,3 +359,229 @@ Redux context:
   2. Actions
   3. Reducer
 - We combine all the slices into a single store.
+
+## Exercise: Build a Multi-Feature Blogging Application
+
+### Objective:
+
+Create a blogging application where users can create, edit, delete, and view blog posts. The application should use React concepts like Redux, React Router, useState, useReducer, useEffect, useRef, and Axios.
+
+### Requirements:
+
+#### Homepage:
+
+- Display a list of blog posts with a summary of each post.
+- Each post should have a "Read More" button that navigates to the detailed view of the post.
+
+#### Post Detail Page:
+
+- Display the full content of the blog post.
+- Provide options to edit or delete the post.
+
+#### Create/Edit Post Page:
+
+- Include a form to create a new blog post or edit an existing one.
+- The form should include fields for the title, content, and tags.
+- Use useRef to focus on the title input when the page loads.
+- Manage form state with useState and handle form submission using useEffect.
+
+#### Global State Management (Redux):
+
+- Use Redux to manage the state of the blog posts across the application.
+- Include actions for adding, editing, and deleting posts.
+
+#### Navigation (React Router):
+
+- Implement routing to navigate between the homepage, post detail page, and create/edit post page.
+- Use React Router to handle the navigation and URL parameters.
+
+#### API Integration (Axios):
+
+- Fetch the list of blog posts from a mock API when the application loads (use useEffect).
+- Use Axios to handle the API requests for CRUD operations (Create, Read, Update, Delete).
+
+#### Custom Hooks:
+
+- Implement a custom hook that encapsulates the logic for form validation and can be reused across different forms in the application.
+
+#### Side Effects (useEffect):
+
+- Use useEffect to handle side effects like fetching data, updating the document title with the post title on the Post Detail page, and saving form data.
+
+#### Complex State Management (useReducer):
+
+- Implement useReducer to manage complex state transitions within the form, such as handling form input changes, validation errors, and submission status.
+
+# Database- Day -1: MySQL
+
+## Contents:
+
+[x] Introduction to database  
+[x] what is mysql?  
+[ ] intro to mysql engines  
+[ ] basic queries - create db, table  
+[ ] insert, update, alter  
+[ ] select - where clause, distinct, group by, order by, offset, limit
+
+## Introduction to database
+
+- Database is a collection of data that is organized in a way that it can be easily accessed, managed, and updated.
+- Data is stored in either tables or objects(key-value pairs).
+- Databases are categorized based on the type of data they store and the way they store data.
+- There are two types of databases:
+  - SQL: Structured Query Language: Structured databases or relational databases: MySQL, PostgreSQL, SQLite, Oracle, SQL Server.
+  - NoSQL: Non-Structured Query Language: Unstructured databases or non-relational databases: MongoDB, CouchDB, Cassandra, Redis, Elasticsearch.
+
+## What is MySQL?
+
+- MySQL is an open-source relational database management system (RDBMS).
+- It is based on SQL (Structured Query Language).
+- MySQL is used for managing databases, storing data, and retrieving data.
+
+## MySQL Engines:
+
+- MySQL supports multiple storage engines that handle the SQL operations for different types of tables.
+- The storage engine is responsible for managing the storage of data in the database.
+- Some of the popular storage engines in MySQL are:
+  - InnoDB
+  - MyISAM
+  - Memory
+  - CSV
+  - Archive
+- Each storage engine has its own set of features and limitations.
+- The default storage engine in MySQL is InnoDB.
+- Database systems: MySQL, PostgreSQL, SQLite, Oracle, SQL Server.
+
+## Basic queries:
+
+- **Show Databases**:
+
+```sql
+SHOW DATABASES;
+```
+
+- **Create Database**:
+
+```sql
+CREATE DATABASE database_name;
+```
+
+- **Use Database**:
+
+```sql
+USE database_name;
+```
+
+- **See the current database**:
+
+```sql
+SELECT DATABASE();
+```
+
+Sample Database and Tables:
+
+- **Create Table**:
+
+```sql
+create table employee(
+    id int primary key,
+    name varchar(50),
+    age int,
+    salary int,
+    location varchar(50)
+);
+```
+
+- **Insert Data**:
+
+```sql
+insert into employee values
+(1, 'John', 30, 50000, 'New York'),
+(2, 'Alice', 25, 40000, 'California'),
+(3, 'Bob', 35, 60000, 'Texas'),
+(4, 'Charlie', 28, 45000, 'Florida'),
+(5, 'David', 32, 55000, 'New Jersey'),
+(6, 'Eve', 27, 42000, 'Washington'),
+(7, 'Frank', 29, 48000, 'Arizona'),
+(8, 'Grace', 31, 52000, 'Colorado'),
+(9, 'Helen', 33, 57000, 'Georgia'),
+(10, 'Ivy', 26, 43000, 'Hawaii'),
+(11, 'Jack', 34, 59000, 'Idaho'),
+(12, 'Kevin', 36, 62000, 'Illinois'),
+(13, 'Lily', 29, 48000, 'Indiana'),
+(14, 'Mike', 30, 50000, 'Iowa'),
+(15, 'Nancy', 28, 45000, 'Kansas');
+```
+
+- **Select Data**: (get all records)
+
+```sql
+select * from employee;
+```
+
+- **Update Data**: (update salary of employee with id 8)
+
+```sql
+
+update employee set salary = 52000 where id = 8;
+```
+
+- **Alter Table**: (add email column)
+
+```sql
+alter table employee add column email varchar(50);
+```
+
+- **Delete Data**: (delete employee with id 15)
+
+```sql
+delete from employee where id = 15;
+```
+
+- **Drop Table**: (delete table)
+
+```sql
+drop table employee;
+```
+
+- **distinct**: (get unique locations)
+
+```sql
+select distinct location from employee;
+```
+
+- **group by**: (group by location and count the number of employees in each location)
+
+```sql
+select location, count(*) from employee group by location;
+```
+
+- **order by**: (sort by salary in descending order)
+
+```sql
+select * from employee order by salary desc;
+```
+
+- **limit**: (get the first 5 records)
+
+```sql
+select * from employee limit 5;
+```
+
+- **offset**: (skip the first 5 records)
+
+```sql
+select * from employee limit 5 offset 5;
+```
+
+Constraints:
+
+- Constraints are used to specify rules for the data in a table.
+- Constraints can be specified when the table is created or after the table is created.
+
+Types of Constraints:
+
+1. **NOT NULL**: Ensures that a column cannot have a NULL value.
+2. **UNIQUE**: Ensures that all values in a column are different.
+3. **PRIMARY KEY**: Uniquely identifies each record in a table. Primary keys must contain unique values and cannot contain NULL values.
+4. **FOREIGN KEY**: Uniquely identifies a record in another table.
