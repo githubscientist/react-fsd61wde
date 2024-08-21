@@ -585,3 +585,273 @@ Types of Constraints:
 2. **UNIQUE**: Ensures that all values in a column are different.
 3. **PRIMARY KEY**: Uniquely identifies each record in a table. Primary keys must contain unique values and cannot contain NULL values.
 4. **FOREIGN KEY**: Uniquely identifies a record in another table.
+
+# Database- Day -2: MySQL
+
+## Contents:
+
+[x] Normalization, select queries, joins  
+[x] DB model design  
+[ ] Intro to MongoDB & installation of Mongodb
+
+## Normalization:
+
+- Normalization is the process of organizing data in a database to reduce redundancy by dividing large tables into smaller tables and defining relationships between them.
+
+Example: books_author table
+
+| book_id | title             | author_id | author_name  | author_email  |
+| ------- | ----------------- | --------- | ------------ | ------------- |
+| 1       | The Alchemist     | 1         | Paulo Coelho | paulo@xyz.com |
+| 2       | Harry Potter      | 1         | Paulo Coelho | paulo@xyz.com |
+| 3       | The Da Vinci Code | 2         | Dan Brown    | Dan@xyz.com   |
+| 4       | The Hobbit        | 2         | Dan Brown    | Dan@xyz.com   |
+| 5       | The Great Gatsby  | 1         | Paulo Coelho | paulo@xyz.com |
+
+```sql
+create table books_author(
+    book_id int primary key,
+    title varchar(50),
+    author_name varchar(50),
+    author_email varchar(50)
+);
+
+insert into books_author values
+(1, 'The Alchemist', 'Paulo Coelho', 'paulo@xyz.com'),
+(2, 'Harry Potter', 'Paulo Coelho', 'paulo@xyz.com'),
+(3, 'The Da Vinci Code', 'Dan Brown', 'dan@xyz.com'),
+(4, 'The Hobbit', 'Dan Brown', 'dan@xyz.com'),
+(5, 'The Great Gatsby', 'Paulo Coelho', 'paulo@xyz.com');
+```
+
+- In the above table, the author details are repeated for each book.
+- To normalize the table, we can create a separate author table and link it to the books table using a foreign key.
+
+Author Table:
+
+| author_id | author_name  | author_email  |
+| --------- | ------------ | ------------- |
+| 1         | Paulo Coelho | paulo@xyz.com |
+| 2         | Dan Brown    | dan@xyz.com   |
+
+Books Table:
+
+| book_id | title             | author_id |
+| ------- | ----------------- | --------- |
+| 1       | The Alchemist     | 1         |
+| 2       | Harry Potter      | 1         |
+| 3       | The Da Vinci Code | 2         |
+| 4       | The Hobbit        | 2         |
+| 5       | The Great Gatsby  | 1         |
+
+Question: Find the author of the book "The Da Vinci Code".
+
+```sql
+select author_name from author where author_id = (select author_id from books where title = 'The Da Vinci Code');
+```
+
+### Joins:
+
+- Joins are used to combine rows from two or more tables based on a related column between them.
+
+Types of Joins:
+
+1. **INNER JOIN**: Returns records that have matching values in both tables.
+2. **OUTER JOIN**: Returns all records when there is a match in either table.
+   - **LEFT JOIN**: Returns all records from the left table and the matched records from the right table.
+   - **RIGHT JOIN**: Returns all records from the right table and the matched records from the left table.
+
+```sql
+create table author(
+    author_id int primary key,
+    author_name varchar(50),
+    author_email varchar(50)
+);
+
+insert into author values
+(1, 'Paulo Coelho', 'paulo@xyz.com'),
+(2, 'Dan Brown', 'dan@xyz.com');
+
+create table books(
+    book_id int primary key,
+    title varchar(50),
+    author_id int,
+    foreign key (author_id) references author(author_id)
+);
+
+insert into books values
+(1, 'The Alchemist', 1),
+(2, 'Harry Potter', 1),
+(3, 'The Da Vinci Code', 2),
+(4, 'The Hobbit', 2),
+(5, 'The Great Gatsby', 1);
+
+-- using joins
+
+select books.title, author.author_name from books
+inner join author on books.author_id = author.author_id;
+
+-- using left join
+
+select books.title, author.author_name from books
+left join author on books.author_id = author.author_id;
+
+-- using right join
+
+select books.title, author.author_name from books
+right join author on books.author_id = author.author_id;
+```
+
+#### Joins Demonstration
+
+```sql
+create table table1 (id int, c1 varchar(5), c2 varchar(5), tid int);
+
+create table table2 (tid int, c3 varchar(5));
+
+insert into table1 values
+(1, 'X', 'A', 1),
+(2, 'Y', 'B', 2),
+(3, 'Z', 'C', 1),
+(4, 'S', 'D', 3);
+
+insert into table2 values
+(1, 'P'),
+(2, 'Q'),
+(4, 'R');
+
+-- inner join
+select table1.id, table1.c1, table1.c2, table2.c3 from table1
+inner join table2 on table1.tid = table2.tid;
+
+-- left join
+select table1.id, table1.c1, table1.c2, table2.c3 from table1
+left join table2 on table1.tid = table2.tid;
+
+-- right join
+select table1.id, table1.c1, table1.c2, table2.c3 from table1
+right join table2 on table1.tid = table2.tid;
+```
+
+## DB Model Design:
+
+Lets consider a simple example of a library management system.
+
+Requirements:
+
+- The library has multiple books.
+- Each book has a title, author, genre, and publication year.
+- The library has multiple members.
+- Each member has a name, email, and phone number.
+- Members can borrow books from the library.
+- Each book can be borrowed by multiple members.
+- Each member can borrow multiple books.
+
+Identify Entities:
+
+1. Book
+2. Member
+3. Borrow
+
+Identify Attributes:
+
+1. Book:
+
+   - Title
+   - Author
+   - Genre
+   - Publication Year
+
+2. Member:
+
+   - Name
+   - Email
+   - Phone Number
+
+3. Borrow:
+   - Borrow ID
+   - Book ID
+   - Member ID
+   - Borrow Date
+   - Return Date
+
+Identify Relationships:
+
+1. Book - Member (Many-to-Many):
+
+   - A book can be borrowed by multiple members.
+   - A member can borrow multiple books.
+
+2. Book - Borrow (One-to-Many):
+
+   - A book can be borrowed multiple times.
+
+3. Member - Borrow (One-to-Many):
+   - A member can borrow multiple books.
+
+Create Tables:
+
+1. Book Table:
+
+```sql
+create table book(
+    book_id int primary key,
+    title varchar(50),
+    author varchar(50),
+    genre varchar(50),
+    publication_year int
+);
+```
+
+2. Member Table:
+
+```sql
+create table member(
+    member_id int primary key,
+    name varchar(50),
+    email varchar(50),
+    phone_number varchar(15)
+);
+```
+
+3. Borrow Table:
+
+```sql
+create table borrow(
+    borrow_id int primary key,
+    book_id int,
+    member_id int,
+    borrow_date date,
+    return_date date,
+    foreign key (book_id) references book(book_id),
+    foreign key (member_id) references member(member_id)
+);
+```
+
+Sample Data:
+
+```sql
+
+```
+
+Sample Questions:
+
+1. Find the books borrowed by a member with ID 1.
+2. Find the members who have borrowed the book with ID 2.
+3. Find the books that are currently borrowed.
+4. Find the members who have borrowed more than 3 books.
+
+# Exercise: Design a Database Model for Guvi Zen Class
+
+## Requirements:
+
+- Guvi Zen Class is an online learning platform that offers courses on various topics.
+- The platform has multiple courses.
+- Each course has a title, description, duration, and instructor.
+- The platform has multiple students.
+- Each student has a name, email, and phone number.
+- Students can enroll in multiple courses.
+- Each course can have multiple students enrolled.
+- Students can view the course content and submit assignments.
+- Each course can have multiple assignments.
+- Each assignment has a title, description, deadline, and marks.
