@@ -855,3 +855,177 @@ Sample Questions:
 - Students can view the course content and submit assignments.
 - Each course can have multiple assignments.
 - Each assignment has a title, description, deadline, and marks.
+
+# Database- Day -3: MongoDB
+
+## Contents:
+
+[x] Why mongodb?  
+[x] What is document?  
+[x] What is collection?  
+[x] Mongodb vs MySQL  
+[x] creation of database, collections, documents  
+[x] find - query & projection  
+[x] use of operators in find() query
+
+## MongoDB:
+
+- MongoDB is a NoSQL database that stores data in flexible, JSON-like documents.
+
+## Why MongoDB?
+
+- MongoDB is a popular NoSQL database that is used for storing and retrieving data.
+- MongoDB is a document-oriented database, which means it stores data in JSON-like documents.
+- MongoDB is scalable, flexible, and easy to use.
+- MongoDB is used in a wide range of applications, including web applications, mobile apps, and IoT devices.
+- They are preferred for applications that requires unstructured data. Example: social media, blogging platforms, e-commerce websites.
+
+## Document:
+
+- A document is a record in a MongoDB collection.
+- Documents are similar to JSON objects and can contain key-value pairs.
+- Documents are stored in collections.
+
+## Collection:
+
+- A collection is a group of MongoDB documents.
+- Collections are analogous to tables in relational databases.
+- Collections do not enforce a schema, which means that the documents in a collection can have different fields.
+
+## MongoDB vs MySQL:
+
+- **MySQL**:
+
+  - MySQL is a relational database management system (RDBMS).
+  - MySQL uses tables to store data.
+  - MySQL uses SQL (Structured Query Language) to query data.
+  - MySQL is suitable for structured data with predefined schemas.
+
+- **MongoDB**:
+  - MongoDB is a NoSQL database.
+  - MongoDB uses collections to store data.
+  - MongoDB uses a query language similar to JSON to query data.
+  - MongoDB is suitable for unstructured data with dynamic schemas.
+
+## Create Database:
+
+```sql
+use guvi;
+```
+
+## Create Collection:
+
+```sql
+db.createCollection('students');
+```
+
+## Drop a Database
+
+```sql
+db.dropDatabase();
+```
+
+## Drop a Collection
+
+```sql
+db.students.drop();
+```
+
+## To view the current database:
+
+```sql
+db;
+```
+
+## to see all the databases
+
+```sql
+show dbs;
+```
+
+or
+
+```sql
+show databases;
+```
+
+## Insert Documents:
+
+```sql
+db.students.insertOne({ name: 'Alice', age: 25, city: 'New York' });
+```
+
+```sql
+db.students.insertMany([
+  { name: 'Bob', age: 30, city: 'California' },
+  { name: 'Charlie', age: 35, city: 'Texas' },
+  { name: 'David', age: 28, city: 'Florida' },
+]);
+```
+
+## Delete Documents:
+
+```sql
+db.students.deleteOne({ name: 'Alice' });
+```
+
+```sql
+db.students.deleteMany({ city: 'California' });
+```
+
+## Find Documents:
+
+```sql
+db.users.find();
+```
+
+## Find with Query:
+
+```sql
+db.users.find({ "address.city": 'Madison' });
+```
+
+## Find with Projection:
+
+```sql
+db.users.find({}, { age: 0, email: 0});
+```
+
+## Find the data within an array
+
+```sql
+db.users.find({ interests: "coding" })
+```
+
+```sql
+db.users.find({ interests: { $in: ["coding", "music"] } })
+```
+
+```sql
+db.users.find({
+  $and: [
+    { interests: "phtography" },
+    { age: { $lte: 25 } }
+  ]
+})
+
+db.products.find({
+  $and: [
+    { price: { $gte: 400 }},
+    { price: { $lte: 800 } }
+  ]
+})
+```
+
+## List of Operators:
+
+- $eq: Matches values that are equal to a specified value.
+- $gt: Matches values that are greater than a specified value.
+- $gte: Matches values that are greater than or equal to a specified value.
+- $in: Matches any of the values specified in an array.
+- $lt: Matches values that are less than a specified value.
+- $lte: Matches values that are less than or equal to a specified value.
+- $ne: Matches all values that are not equal to a specified value.
+- $nin: Matches none of the values specified in an array.
+- $and: Joins query clauses with a logical AND returns all documents that match the conditions of both clauses.
+- $or: Joins query clauses with a logical OR returns all documents that match the conditions of either clause.
