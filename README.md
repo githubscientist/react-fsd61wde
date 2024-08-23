@@ -1029,3 +1029,184 @@ db.products.find({
 - $nin: Matches none of the values specified in an array.
 - $and: Joins query clauses with a logical AND returns all documents that match the conditions of both clauses.
 - $or: Joins query clauses with a logical OR returns all documents that match the conditions of either clause.
+
+## Update document or documents
+
+```sql
+db.users.updateOne(
+  { name: "Jane Doe" },
+  {
+    $set: { age: 30 }
+  }
+)
+```
+
+This will update only the first document that matches the query.
+
+```sql
+db.users.updateMany(
+  { "address.city": "Springfield" },
+  {
+    $set: { "address.city": "Sf" }
+  }
+)
+```
+
+### Pattern Search
+
+```sql
+db.users.find(
+  {
+    name: {
+      $regex: /doe$/i
+    }
+  }
+)
+```
+
+### Regular Expressions rules
+
+- use /pattern/ to specify the pattern
+- i: case-insensitive
+- m: multi-line
+- $ : end of the string
+- ^ : start of the string
+- . : any character
+- - : 0 or more characters
+- - : 1 or more characters
+- ? : 0 or 1 character
+- \d : digit
+- \w : word character
+- \s : whitespace character
+- {n}: matches exactly n occurences of the preceding element
+- {n, }: matches n or more occurences
+
+# Database- Day -4: MongoDB
+
+## Contents:
+
+[x] basic cursor methods - map, toArray, pretty, forEach, limit, sort
+[x] Aggregation - count
+[ ] Server-side vs Client-side rendering
+
+### Cursor - Basic Example
+
+```js
+const cursor = db.users.find();
+
+while (cursor.hasNext()) {
+  print(cursor.next());
+}
+```
+
+### map
+
+In Javascript,
+
+Let's say we want to print the squares of numbers array.
+
+numbers = [1, 2, 3, 4, 5]
+
+squares = [1, 4, 9, 16, 25]
+
+In MongoDB,
+
+```js
+const cursor = db.users.find();
+
+const ages = cursor.map((doc) => {
+  return doc.age;
+});
+
+print(ages);
+```
+
+```js
+const cursor = db.users.find();
+
+const ages = cursor.map((doc) => {
+  return doc.age;
+});
+
+print(ages.toArray());
+```
+
+```js
+const cursor = db.users.find();
+
+const ages = cursor.map((doc) => {
+  return doc.age;
+});
+
+ages.forEach((age) => print(age + 5));
+```
+
+### sort
+
+Ascending order:
+
+```js
+const cursor = db.users.find().sort({ age: 1 });
+```
+
+Descending order:
+
+```js
+const cursor = db.users.find().sort({ age: -1 });
+```
+
+### limit
+
+Limit the number of documents returned by 1 (first document):
+
+```js
+const cursor = db.users.find().limit(1);
+```
+
+## Basic Cursor Methods:
+
+Cursor: a cursor is a pointer to the result set of the query.
+
+### Aggregation:
+
+```js
+db.users.aggregate([
+  {
+    $count: "total_users",
+  },
+]);
+```
+
+```js
+db.users.aggregate([
+  {
+    $group: {
+      _id: null,
+      averageAge: {
+        $avg: "$age",
+      },
+    },
+  },
+]);
+```
+
+### Server-side vs Client-side Rendering:
+
+- **Server-side rendering**:
+
+  - The server generates the HTML content and sends it to the client.
+  - The client receives the pre-rendered HTML content and displays it.
+  - The server handles the rendering of the content.
+  - Example: PHP, Ruby on Rails, Django, Next.js.
+  - It is faster for the first load as the server sends the pre-rendered HTML content.
+  - It is slower for subsequent loads as the server needs to generate the HTML content for each request.
+  - It is better for SEO as search engines can crawl the content easily.
+
+- **Client-side rendering**:
+  - The server sends the raw data to the client.
+  - The client uses JavaScript to render the content in the browser.
+  - The client handles the rendering of the content.
+  - Example: React, Angular, Vue.js, Single Page Applications (SPAs).
+  - It is slower for the first load as the client needs to render the content in the browser.
+  - It is faster for subsequent loads as the client can cache the content and update only the necessary parts.
+  - It is not as good for SEO as search engines may have difficulty crawling the content.
